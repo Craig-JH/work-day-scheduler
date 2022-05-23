@@ -1,10 +1,10 @@
 //set day and date in header
 $("#currentDay").text(moment().format('dddd MMM Do YYYY'));
 
-//
+//return the current time in hours to help determine past, present and future
 function hourUpdater() {
     let currentHour = moment().hours();
-
+//function to toggle between colors based on current hour
     $(".time-block").each(function() {
        let blockTime = parseInt($(this).attr("id").split("-")[1]); 
 
@@ -31,7 +31,7 @@ $(".saveBtn").on("click", function() {
     let time = $(this).parent().attr("id");
     localStorage.setItem(time, text)
 })
-
+//save schedule in local storage
 $("#time-7am .description").val(localStorage.getItem("time-7am"));
 $("#time-8am .description").val(localStorage.getItem("time-8am"));
 $("#time-9am .description").val(localStorage.getItem("time-9am"));
